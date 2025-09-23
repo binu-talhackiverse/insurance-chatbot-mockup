@@ -10,23 +10,28 @@
 <body>
     <header>
         <div class="header-row">
-            <div class="hamburger-menu" style="display: flex; align-items: center;">
-                <button id="menu-btn" style="background: none; border: none; cursor: pointer; font-size: 2rem; color: #fff; margin-right: 1rem;">
+            <div class="hamburger-menu">
+                <button id="menu-btn">
                     <i class="fa-solid fa-bars"></i>
                 </button>
                 <nav class="menu-nav">
                     <a href="index.html" class="menu-item">Home</a>
                 </nav>
-            </div>
-            <div class="welcome-center">
-                <h1>Life events</h1>
+                <div class="fund-name">
+                    Superfund
+                </div>
             </div>
             <div class="user-icon">
                 <i class="fa-solid fa-user-circle"></i>
+                <span id="user-name-top" style="margin-left: 0.5rem;">John</span>
             </div>
         </div>
     </header>
     <main>
+         <div class="page-title">
+            <h1>Life events</h1>
+            <p></p>
+        </div>
         <section class="personal-details-section">
             <form class="form-section">
                 <h2>Personal Details</h2>
@@ -59,7 +64,7 @@
                     </select>
                 </div>
                 <div class="button-row" style="margin-top:2rem; text-align:center;">
-                    <button type="button" onclick="window.location.href='index.html'">Back</button>
+                    <button class="button" type="button" onclick="window.location.href='index.html'">Back</button>
                 </div>
             </form>
         </section>

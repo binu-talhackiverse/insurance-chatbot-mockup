@@ -15,17 +15,16 @@
 <body>
     <header>
         <div class="header-row">
-            <div class="hamburger-menu" style="display: flex; align-items: center;">
-                <button id="menu-btn" style="background: none; border: none; cursor: pointer; font-size: 2rem; color: #fff; margin-right: 1rem;">
+            <div class="hamburger-menu">
+                <button id="menu-btn">
                     <i class="fa-solid fa-bars"></i>
                 </button>
                 <nav class="menu-nav">
                     <a href="index.html" class="menu-item">Home</a>
                 </nav>
-            </div>
-            <div class="welcome-center">
-                <h1>Welcome to Insurance Portal, John!</h1>
-                <p>Select your journey below or chat with us for guidance!</p>
+                <div class="fund-name">
+                    Superfund
+                </div>
             </div>
             <div class="user-icon">
                 <i class="fa-solid fa-user-circle"></i>
@@ -34,6 +33,10 @@
         </div>
     </header>
     <main>
+        <div class="welcome-center">
+            <h1>Welcome to Insurance Portal, John!</h1>
+            <p>Select your journey below or chat with us for guidance!</p>
+        </div>
         <section class="cover-details">
             <h2>Your Existing Cover Details</h2>
             <div class="home-cover-cards">
@@ -62,19 +65,16 @@
         </section>
         <div class="tiles">
             <div class="tile" onclick="navigate('manage-cover.html')">
-                <!-- Icon for Manage Cover -->
                 <i class="fa-solid fa-shield-halved fa-2x"></i>
                 <h2>Manage Cover</h2>
                 <p>Update or review your insurance cover.</p>
             </div>
             <div class="tile" onclick="navigate('transfer-cover.html')">
-                <!-- Icon for Transfer -->
                 <i class="fa-solid fa-exchange-alt fa-2x"></i>
                 <h2>Transfer</h2>
                 <p>Transfer your policy or benefits.</p>
             </div>
             <div class="tile" onclick="navigate('life-events.html')">
-                <!-- Icon for Life Events -->
                 <i class="fa-solid fa-heart-pulse fa-2x"></i>
                 <h2>Life Events</h2>
                 <p>Update your policy for major life changes.</p>
