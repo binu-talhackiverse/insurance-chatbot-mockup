@@ -428,3 +428,40 @@ footer {
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
+
+/* Home page cover cards */
+.home-cover-cards {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* margin: 2rem 0; */
+}
+
+.home-cover-card {
+    background: #e6f2fb;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(33,136,56,0.10);
+    padding: 1.5rem 2rem;
+    min-width: 180px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.home-cover-card .cover-icon {
+    font-size: 2.2rem;
+    color: #000;
+}
+
+.home-cover-card .cover-type {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #000;
+}
+
+.home-cover-card .cover-amount {
+    font-size: 1.1rem;
+    color: #333;
+    margin-top: 0.2rem;
+}
