@@ -4,90 +4,109 @@
     <meta charset="UTF-8">
     <title>Transfer Cover</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        header {
-            display: flex;
-            align-items: center;
-            padding: 16px 0;
-            background-color: #f5f7fa;
-            margin-bottom: 24px;
+        .menu-nav {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 20px;
+            background: #e6f2fb;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 0.5rem 1.5rem;
+            z-index: 100;
+        }
+        .menu-nav.open {
+            display: block;
+        }
+        .menu-item {
+            display: block;
+            color: #000 !important;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0.5rem 0;
+        }
+        .hamburger-menu {
+            position: relative;
         }
     </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.getElementById('menu-btn');
+            const menuNav = document.querySelector('.menu-nav');
+            menuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                menuNav.classList.toggle('open');
+            });
+            document.addEventListener('click', function(e) {
+                if (menuNav.classList.contains('open')) {
+                    menuNav.classList.remove('open');
+                }
+            });
+            menuNav.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
 </head>
 <body>
-
     <header>
-        <a href="index.html" class="logo-link">
-            <img src="images/AwareSuper-logo.svg" alt="Insurance Portal Logo" class="logo-img">
-        </a>
+        <div class="header-row">
+            <div class="hamburger-menu" style="display: flex; align-items: center;">
+                <button id="menu-btn" style="background: none; border: none; cursor: pointer; font-size: 2rem; color: #fff; margin-right: 1rem;">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <nav class="menu-nav">
+                    <a href="index.html" class="menu-item">Home</a>
+                </nav>
+            </div>
+            <div class="welcome-center">
+                <h1>Transfer your cover</h1>
+            </div>
+            <div class="user-icon">
+                <i class="fa-solid fa-user-circle"></i>
+            </div>
+        </div>
     </header>
-       
     <main>
-        <form class="form-section">
-            <div>
+        <section class="personal-details-section">
+            <form class="form-section">
                 <h2>Personal Details</h2>
-                <p>Review and update your insurance cover details below.</p>
-            </div>
-            <div class="form-group">
-                <label>Name</label>
-                <span class="label-value">John Doe</span>
-            </div>
-            <div class="form-group">
-                <label>Date of Birth</label>
-                <span class="label-value">01/01/1980</span>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label>Are you an Australian resident?</label>
-                <div class="radio-group">
-                    <label><input type="radio" name="resident" value="yes" required> Yes</label>
-                    <label><input type="radio" name="resident" value="no"> No</label>
+                <div class="form-group">
+                    <label>Name</label>
+                    <span class="label-value">John Doe</span>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="work-status">What is your work status?</label>
-                <select id="work-status" name="work-status" required>
-                    <option value="">Select...</option>
-                    <option value="employed">Employed</option>
-                    <option value="self-employed">Self-employed</option>
-                    <option value="unemployed">Unemployed</option>
-                    <option value="student">Student</option>
-                    <option value="retired">Retired</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="hours-worked">Hours worked per week?</label>
-                <input type="number" id="hours-worked" name="hours-worked" min="0" max="168" required>
-            </div>
-            <div class="form-group">
-                <label for="gross-income">Gross income (excl. superannuation)</label>
-                <input type="number" id="gross-income" name="gross-income" min="0" step="0.01" required>
-            </div>
-            <div class="form-group">
-                <label for="main-occupation">What is your main occupation?</label>
-                <select id="main-occupation" name="main-occupation" required>
-                    <option value="">Select...</option>
-                    <option value="professional">Professional</option>
-                    <option value="manual">Manual Worker</option>
-                    <option value="manager">Manager</option>
-                    <option value="student">Student</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Your assigned insurance category:</label>
-                <span class="label-value">Category A</span>
-            </div>
-            <div class="button-row">
-                <button type="button" onclick="window.location.href='index.html'">Back</button>
-                <button type="button" onclick="window.location.href='cover.html'">Continue</button>
-            </div>
-        </form>
+                <div class="form-group">
+                    <label>Date of Birth</label>
+                    <span class="label-value">01/01/1980</span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" value="john.doe@superfund.com.au">
+                </div>
+                <div class="form-group">
+                    <label for="occupation">Occupation</label>
+                    <select id="occupation" name="occupation">
+                        <option value="">Select...</option>
+                        <option value="accountant">Accountant</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="engineer">Engineer</option>
+                        <option value="nurse">Nurse</option>
+                        <option value="retail">Retail Worker</option>
+                        <option value="construction">Construction Worker</option>
+                        <option value="it">IT Professional</option>
+                        <option value="student">Student</option>
+                        <option value="unemployed">Unemployed</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="button-row" style="margin-top:2rem; text-align:center;">
+                    <button type="button" onclick="window.location.href='index.html'">Back</button>
+                </div>
+            </form>
+        </section>
     </main>
-
     <footer>
         <p>&copy; 2023 Insurance Portal. All rights reserved.</p>
     </footer>

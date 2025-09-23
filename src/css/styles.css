@@ -355,3 +355,12 @@ footer {
     color: #333;
     margin-top: 0.2rem;
 }
+
+.form-group input[type="email"] {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    /* You can also set padding-top and padding-bottom for uniformity */
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    box-sizing: border-box;
+}
