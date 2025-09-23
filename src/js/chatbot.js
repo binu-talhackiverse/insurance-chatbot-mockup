@@ -99,3 +99,28 @@ function addMessage(text, cls) {
     document.getElementById('chatbot-messages').appendChild(msgDiv);
     document.getElementById('chatbot-messages').scrollTop = document.getElementById('chatbot-messages').scrollHeight;
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('chatbot-popup');
+    const toggleBtn = document.getElementById('chatbot-toggle');
+    const toggleIcon = document.getElementById('chatbot-toggle-icon');
+    if (!popup || !toggleBtn || !toggleIcon) return;
+    let minimized = false;
+
+    toggleBtn.addEventListener('click', function() {
+        minimized = !minimized;
+        if (minimized) {
+            popup.style.height = '48px';
+            popup.style.overflow = 'hidden';
+            toggleIcon.classList.remove('fa-window-minimize');
+            toggleIcon.classList.add('fa-window-maximize');
+            toggleBtn.title = "Maximize";
+        } else {
+            popup.style.height = '';
+            popup.style.overflow = '';
+            toggleIcon.classList.remove('fa-window-maximize');
+            toggleIcon.classList.add('fa-window-minimize');
+            toggleBtn.title = "Minimize";
+        }
+    });
+});
