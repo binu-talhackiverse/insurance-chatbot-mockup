@@ -305,3 +305,53 @@ footer {
     background-color: #f5f7fa;
     margin-top: 24px;
 }
+
+.cover-details {
+    background: #e6f2fb;
+    border-radius: 12px;
+    margin: 2rem auto 0 auto;
+    max-width: 700px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 8px rgba(33,136,56,0.08);
+}
+
+.cover-details h2 {
+    color: #000;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.cover-cards {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cover-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(33,136,56,0.10);
+    padding: 1.5rem 2rem;
+    min-width: 180px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cover-icon {
+    font-size: 2.2rem;
+    color: #000;
+}
+
+.cover-type {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #000;
+}
+
+.cover-amount {
+    font-size: 1.1rem;
+    color: #333;
+    margin-top: 0.2rem;
+}
