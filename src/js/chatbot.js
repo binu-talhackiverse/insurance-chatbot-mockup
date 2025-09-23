@@ -18,19 +18,33 @@ document.getElementById('chatbot-form').onsubmit = async function(e) {
 
     // Use Azure AI function with conversation history
     const botReply = await getAzureAIResponse(conversationHistory);
-    addMessage(botReply, 'bot-message');
 
-    // Add bot reply to conversation history
-    conversationHistory.push({ role: "assistant", content: botReply });
-
-    // Set cookie based on recommendation
+    // Set cookie based on recommendation (hidden from user)
+    let formType = '';
     if (/long form/i.test(botReply)) {
         setCookie('coverwise_form', 'lf', 7);
+        formType = 'lf';
     } else if (/short form/i.test(botReply)) {
         setCookie('coverwise_form', 'sf', 7);
+        formType = 'sf';
     } else {
         setCookie('coverwise_form', '', 7);
     }
+
+    // Remove "long form" and "short form" from the reply before displaying
+    let displayReply = botReply
+        .replace(/long form/gi, "Manage Cover journey")
+        .replace(/short form/gi, "Manage Cover journey");
+
+    // If the reply only contains the recommendation, simplify further
+    if (formType && /^Based on your answers, I recommend you complete the (long|short) form\./i.test(botReply.trim())) {
+        displayReply = "You can proceed with the Manage Cover journey.";
+    }
+
+    addMessage(displayReply, 'bot-message');
+
+    // Add bot reply to conversation history
+    conversationHistory.push({ role: "assistant", content: botReply });
 };
 
 // Helper function to set cookie
