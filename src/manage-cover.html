@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="js/menu.js"></script>
+    <script src="js/manage-cover.js"></script>
 </head>
 <body>
     <header>
@@ -57,6 +58,31 @@
                         <option value="unemployed">Unemployed</option>
                         <option value="other">Other</option>
                     </select>
+                </div>
+                <!-- Eligibility Questions Section -->
+                <h2 style="margin-top:2rem;">Eligibility Questions</h2>                
+                <div id="conditional-questions">
+                    <div class="form-group">
+                        <label>Are you currently restricted from performing all of your normal and usual duties due to illness or injury?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="restricted-duties" value="yes" required> Yes</label>
+                            <label><input type="radio" name="restricted-duties" value="no"> No</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Have you been told by a medical practitioner that your life expectancy could be less than 24 months due to illness or injury?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="life-expectancy" value="yes" required> Yes</label>
+                            <label><input type="radio" name="life-expectancy" value="no"> No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Have you been told by a medical practitioner that an illness or injury you suffer from, may cause you a permanent inability to work?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="permanent-inability" value="yes" required> Yes</label>
+                        <label><input type="radio" name="permanent-inability" value="no"> No</label>
+                    </div>
                 </div>
                 <div class="button-row" style="margin-top:2rem; text-align:center;">
                     <button type="button" onclick="window.location.href='index.html'">Back</button>
