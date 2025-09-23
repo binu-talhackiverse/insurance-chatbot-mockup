@@ -5,50 +5,7 @@
     <title>Manage Cover</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .menu-nav {
-            display: none;
-            position: absolute;
-            top: 60px;
-            left: 20px;
-            background: #e6f2fb;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            padding: 0.5rem 1.5rem;
-            z-index: 100;
-        }
-        .menu-nav.open {
-            display: block;
-        }
-        .menu-item {
-            display: block;
-            color: #000 !important;
-            text-decoration: none;
-            font-weight: 500;
-            margin: 0.5rem 0;
-        }
-        .hamburger-menu {
-            position: relative;
-        }
-    </style>
-    <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            const menuBtn = document.getElementById('menu-btn');
-            const menuNav = document.querySelector('.menu-nav');
-            menuBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                menuNav.classList.toggle('open');
-            });
-            document.addEventListener('click', function(e) {
-                if (menuNav.classList.contains('open')) {
-                    menuNav.classList.remove('open');
-                }
-            });
-            menuNav.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
-        });
-    </script>
+    <script src="js/menu.js"></script>
 </head>
 <body>
     <header>

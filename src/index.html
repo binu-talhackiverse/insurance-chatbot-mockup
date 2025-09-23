@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Insurance Portal Home</title>
     <link rel="stylesheet" href="css/styles.css">
-    <!-- Add Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/menu.js"></script>
     <script>
         function navigate(path) {
             window.location.href = path;
@@ -15,12 +15,21 @@
 <body>
     <header>
         <div class="header-row">
+            <div class="hamburger-menu" style="display: flex; align-items: center;">
+                <button id="menu-btn" style="background: none; border: none; cursor: pointer; font-size: 2rem; color: #fff; margin-right: 1rem;">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <nav class="menu-nav">
+                    <a href="index.html" class="menu-item">Home</a>
+                </nav>
+            </div>
             <div class="welcome-center">
                 <h1>Welcome to Insurance Portal, John!</h1>
                 <p>Select your journey below or chat with us for guidance!</p>
             </div>
             <div class="user-icon">
                 <i class="fa-solid fa-user-circle"></i>
+                <span id="user-name-top" style="margin-left: 0.5rem;">John</span>
             </div>
         </div>
     </header>
