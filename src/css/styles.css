@@ -392,3 +392,10 @@ footer {
 .hamburger-menu {
     position: relative;
 }
+
+.row {
+    display: flex; 
+    flex-direction: row;
+    padding: 5px;
+    margin: 5px;
+}
