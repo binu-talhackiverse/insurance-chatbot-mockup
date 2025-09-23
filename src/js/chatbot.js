@@ -5,10 +5,6 @@ let conversationHistory = [
     }
 ];
 
-document.getElementById('chatbot-close').onclick = function() {
-    document.getElementById('chatbot-popup').classList.add('hidden');
-};
-
 document.getElementById('chatbot-form').onsubmit = async function(e) {
     e.preventDefault();
     const input = document.getElementById('chatbot-input');
@@ -26,7 +22,28 @@ document.getElementById('chatbot-form').onsubmit = async function(e) {
 
     // Add bot reply to conversation history
     conversationHistory.push({ role: "assistant", content: botReply });
+
+    // Set cookie based on recommendation
+    if (/long form/i.test(botReply)) {
+        setCookie('coverwise_form', 'lf', 7);
+    } else if (/short form/i.test(botReply)) {
+        setCookie('coverwise_form', 'sf', 7);
+    } else {
+        setCookie('coverwise_form', '', 7);
+    }
 };
+
+// Helper function to set cookie
+function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    console.log(`Cookie set: ${name}=${value}`);
+}
 
 // Modified to accept conversation history
 async function getAzureAIResponse(messages) {
