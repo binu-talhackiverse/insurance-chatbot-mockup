@@ -323,25 +323,35 @@ footer {
 
 .cover-cards {
     display: flex;
+    flex-direction: column;
     gap: 2rem;
-    justify-content: center;
-    flex-wrap: wrap;
+    width: 100%;
+    margin: 2rem 0;
 }
 
 .cover-card {
     background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(33, 136, 56, 0.10);
-    padding: 1.5rem 2rem;
-    min-width: 180px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(33,136,56,0.10);
+    /* Remove padding */
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.cover-card-header {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 .cover-icon {
-    font-size: 2.2rem;
+    font-size: 2rem;
     color: #000;
+    margin-right: 0.7rem;
 }
 
 .cover-type {
@@ -350,10 +360,8 @@ footer {
     color: #000;
 }
 
-.cover-amount {
-    font-size: 1.1rem;
-    color: #333;
-    margin-top: 0.2rem;
+.cover-card-body .form-group {
+    margin-bottom: 0.8rem;
 }
 
 .form-group input[type="email"] {
@@ -398,4 +406,25 @@ footer {
     flex-direction: row;
     padding: 5px;
     margin: 5px;
+}
+
+.row-flex {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.row-flex label {
+    margin-bottom: 0;
+    min-width: 120px;
+}
+.row-flex input[type="number"],
+.row-flex input[type="email"],
+.row-flex select {
+    flex: 1;
+    min-width: 0;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
