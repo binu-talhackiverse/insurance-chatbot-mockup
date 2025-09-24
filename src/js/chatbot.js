@@ -114,7 +114,7 @@ function addMessage(text, cls, journey) {
                 window.location.href = 'life-events.html';
             }
         };
-        msgDiv.appendChild(btn);
+        //msgDiv.appendChild(btn);
     }
 
     document.getElementById('chatbot-messages').appendChild(msgDiv);
