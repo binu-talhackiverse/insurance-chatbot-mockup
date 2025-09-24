@@ -162,7 +162,7 @@ h1, h2 {
 
 .bot-message {
     background: #ffc8e8;
-    color: #2d6cdf;
+    color: #000;
     align-self: flex-start;
 }
 
@@ -526,7 +526,7 @@ footer {
 }
 
 .chatbot-journey-btn {
-    background: #2d6cdf;
+    background: #e50a7e;
     color: #fff;
     border: none;
     border-radius: 0px;
@@ -536,7 +536,7 @@ footer {
     margin-top: 0.5rem;
 }
 .chatbot-journey-btn:hover {
-    background: #005fa3;
+    background: #d464a0;
 }
 
 .cover-section {
