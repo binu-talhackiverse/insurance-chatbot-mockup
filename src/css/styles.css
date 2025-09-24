@@ -138,7 +138,7 @@ h1 {
 #chatbot-header {
     background: #2d6cdf;
     color: #fff;
-    padding: 0rem 1rem;
+    padding: 1rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -596,4 +596,18 @@ footer {
     margin: 2.5rem 0 2rem 0;
     width: 100%;
     opacity: 0.2;
+}
+
+.chatbot-option-btn {
+    background: #e50a7e;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 0.7rem;
+}
+.chatbot-option-btn:hover {
+    background: #d464a0;
 }
