@@ -80,11 +80,11 @@
                             <div class="quick-cover-body">
                                 <div class="form-group row-flex">
                                     <label>Death Cover:</label>
-                                    <span class="label-value">$220,000</span>
+                                    <span class="label-value">$783,000</span>
                                 </div>
                                 <div class="form-group row-flex">
                                     <label>TPD Cover:</label>
-                                    <span class="label-value">$120,000</span>
+                                    <span class="label-value">$783,000</span>
                                 </div>
                                 <div class="form-group row-flex">
                                     <label>IP Cover:</label>
@@ -103,17 +103,37 @@
                                 <span class="cover-type">Customize Cover</span>
                             </div>
                             <div class="customize-cover-body">
-                                <div class="form-group row-flex">
-                                    <label for="custom-death-cover">Death Cover:</label>
-                                    <input type="number" id="custom-death-cover" placeholder="Enter custom death cover amount" step="10000" min="0">
+                                <!-- 1. Existing Cover Section -->
+                                <div class="existing-cover-section">
+                                    <h3>Existing Cover</h3>
+                                    <div class="form-group row-flex">
+                                        <label>Death Cover:</label>
+                                        <span class="label-value">$261,000</span>
+                                    </div>
+                                    <div class="form-group row-flex">
+                                        <label>TPD Cover:</label>
+                                        <span class="label-value">$261,000</span>
+                                    </div>
+                                    <div class="form-group row-flex">
+                                        <label>IP Cover:</label>
+                                        <span class="label-value">$5,000</span>
+                                    </div>
                                 </div>
-                                <div class="form-group row-flex">
-                                    <label for="custom-tpd-cover">TPD Cover:</label>
-                                    <input type="number" id="custom-tpd-cover" placeholder="Enter custom TPD cover amount" step="10000" min="0">
-                                </div>
-                                <div class="form-group row-flex">
-                                    <label for="custom-ip-cover">IP Cover:</label>
-                                    <input type="number" id="custom-ip-cover" placeholder="Enter custom IP cover amount" step="5000" min="0">
+                                <!-- 2. New Cover Section -->
+                                <div class="new-cover-section" style="margin-top:2rem;">
+                                    <h3>New Cover</h3>
+                                    <div class="form-group row-flex">
+                                        <label for="custom-death-cover">Death Cover:</label>
+                                        <input type="number" id="custom-death-cover" placeholder="Enter custom death cover amount" step="10000" min="0">
+                                    </div>
+                                    <div class="form-group row-flex">
+                                        <label for="custom-tpd-cover">TPD Cover:</label>
+                                        <input type="number" id="custom-tpd-cover" placeholder="Enter custom TPD cover amount" step="10000" min="0">
+                                    </div>
+                                    <div class="form-group row-flex">
+                                        <label for="custom-ip-cover">IP Cover:</label>
+                                        <input type="number" id="custom-ip-cover" placeholder="Enter custom IP cover amount" step="5000" min="0">
+                                    </div>
                                 </div>
                             </div>
                         </div>
