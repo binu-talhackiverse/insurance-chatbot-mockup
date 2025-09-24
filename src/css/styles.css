@@ -6,14 +6,15 @@ body {
 }
 
 header {
-    background: #2d6cdf;
+    background: #fff;
     color: #fff;
     padding: 2rem 1rem 1rem 1rem;
     text-align: center;
 }
 
-h1 {
+h1, h2 {
     margin: 0;
+    color: #e5007e;
 }
 
 .chat-container {
@@ -136,7 +137,7 @@ h1 {
 }
 
 #chatbot-header {
-    background: #2d6cdf;
+    background: #e5007e;
     color: #fff;
     padding: 1rem 1rem;
     display: flex;
@@ -185,7 +186,7 @@ h1 {
 }
 
 #chatbot-form button {
-    background: #2d6cdf;
+    background: #e5007e;
     color: #fff;
     border: none;
     padding: 0 1.25rem;
@@ -210,7 +211,7 @@ h1 {
 }
 
 .user-icon {
-    color: #fff;
+    color: #e5007e;
     font-size: 2.2rem;
     margin-top: 0.5rem;
     margin-right: 1rem;
@@ -323,7 +324,7 @@ footer {
 }
 
 .cover-details h2 {
-    color: #000;
+    color: #e5007e;
     margin-bottom: 1rem;
     text-align: left;
 }
@@ -364,7 +365,7 @@ footer {
 .cover-type {
     font-weight: bold;
     font-size: 1.1rem;
-    color: #000;
+    color: #e5007e;
 }
 
 .cover-card-body .form-group {
@@ -414,7 +415,7 @@ footer {
     background: none !important;
     border: none !important;
     box-shadow: none !important;
-    color: #fff;
+    color: #e5007e;
     cursor: pointer;
     font-size: 2rem;
     margin-right: 1rem;
@@ -479,7 +480,7 @@ footer {
 .home-cover-card .cover-type {
     font-weight: bold;
     font-size: 1.1rem;
-    color: #000;
+    color: #e5007e;
 }
 
 .home-cover-card .cover-amount {
@@ -608,6 +609,12 @@ footer {
     cursor: pointer;
     margin-top: 0.7rem;
 }
+
 .chatbot-option-btn:hover {
     background: #d464a0;
+}
+
+.fund-logo {
+    height: 75px;
+    padding: 5px 0;
 }
