@@ -35,3 +35,7 @@ function getCookie(name) {
     }
     return '';
 }
+
+function navigate(path) {
+    window.location.href = path;
+}
