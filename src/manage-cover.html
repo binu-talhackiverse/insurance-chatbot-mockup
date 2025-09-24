@@ -30,7 +30,7 @@
             </div>
         </div>
     </header>
-    
+
     <main>
         <div class="page-title">
             <h1>Manage your cover</h1>
@@ -38,7 +38,7 @@
         </div>
         <section class="personal-details-section">
             <form class="form-section">
-                <h2 style="color: #e50a7e;">Personal Details</h2>
+                <h2 style="color: #e50a7e; margin-bottom:2rem;">Personal Details</h2>
                 <div class="form-group">
                     <label>Name</label>
                     <span class="label-value">John Doe</span>
@@ -103,131 +103,91 @@
                                 <span class="cover-type">Customize Cover</span>
                             </div>
                             <div class="customize-cover-body">
-                                <!-- 1. Existing Cover Section -->
-                                <div class="existing-cover-section">
-                                    <h3>Existing Cover</h3>
-                                    <div class="form-group row-flex">
-                                        <label>Death Cover:</label>
-                                        <span class="label-value">$261,000</span>
+                                <div class="cover-cards" style="margin-bottom: 0;">
+                                    <div class="cover-card">
+                                        <div class="cover-card-header">
+                                            <span class="cover-type">Death Cover</span>
+                                        </div>
+                                        <div class="cover-card-body">
+                                            <div class="form-group row-flex">
+                                                <label>Existing Cover:</label>
+                                                <span class="label-value">$261,000</span>
+                                            </div>
+                                            <div class="form-group row-flex">
+                                                <label for="death-value">New Cover:</label>
+                                                <input type="number" id="death-value" placeholder="Enter new death cover value" required step="10000"
+                                                    min="0">
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="form-group row-flex">
-                                        <label>TPD Cover:</label>
-                                        <span class="label-value">$261,000</span>
+
+                                    <div class="cover-card">
+                                        <div class="cover-card-header">
+                                            <span class="cover-type">TPD Cover</span>
+                                        </div>
+                                        <div class="cover-card-body">
+                                            <div class="form-group row-flex">
+                                                <label>Existing Cover:</label>
+                                                <span class="label-value">$261,000</span>
+                                            </div>
+                                            <div class="form-group row-flex">
+                                                <label for="tpd-value">New Cover:</label>
+                                                <input type="number" id="tpd-value" placeholder="Enter new TPD cover value" required step="10000" min="0">
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="form-group row-flex">
-                                        <label>IP Cover:</label>
-                                        <span class="label-value">$5,000</span>
-                                    </div>
-                                </div>
-                                <!-- 2. New Cover Section -->
-                                <div class="new-cover-section" style="margin-top:2rem;">
-                                    <h3>New Cover</h3>
-                                    <div class="form-group row-flex">
-                                        <label for="custom-death-cover">Death Cover:</label>
-                                        <input type="number" id="custom-death-cover" placeholder="Enter custom death cover amount" step="10000" min="0">
-                                    </div>
-                                    <div class="form-group row-flex">
-                                        <label for="custom-tpd-cover">TPD Cover:</label>
-                                        <input type="number" id="custom-tpd-cover" placeholder="Enter custom TPD cover amount" step="10000" min="0">
-                                    </div>
-                                    <div class="form-group row-flex">
-                                        <label for="custom-ip-cover">IP Cover:</label>
-                                        <input type="number" id="custom-ip-cover" placeholder="Enter custom IP cover amount" step="5000" min="0">
+
+                                    <div class="cover-card" style="margin-bottom: 0;">
+                                        <div class="cover-card-header">
+                                            <span class="cover-type">Income Protection</span>
+                                        </div>
+                                        <div class="cover-card-body">
+                                            <div class="form-group row-flex">
+                                                <label>Existing Cover:</label>
+                                                <span class="label-value">$5,000/month</span>
+                                            </div>
+                                            <div class="form-group row-flex">
+                                                <label>Existing Benefit Period:</label>
+                                                <span class="label-value">2 years</span>
+                                            </div>
+                                            <div class="form-group row-flex">
+                                                <label>Existing Waiting Period:</label>
+                                                <span class="label-value">90 Days</span>
+                                            </div>
+                                            <div class="form-group row-flex">
+                                                <label for="ip-value">New Cover:</label>
+                                                <input type="number" id="ip-value" placeholder="Enter new IP cover value"
+                                                    required step="1000" min="0">
+                                            </div>
+                                            <div class="form-group row-flex">
+                                                <label for="ip-benefit-period">New Benefit Period:</label>
+                                                <select id="ip-benefit-period" name="ip-benefit-period" required>
+                                                    <option value="">Select...</option>
+                                                    <option value="2-years">2 years</option>
+                                                    <option value="5-years">5 years</option>
+                                                    <option value="to-age-65">To age 65</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group row-flex">
+                                                <label for="ip-waiting-period">New Waiting Period:</label>
+                                                <select id="ip-waiting-period" name="ip-waiting-period" required>
+                                                    <option value="">Select...</option>
+                                                    <option value="14-days">14 Days</option>
+                                                    <option value="30-days">30 Days</option>
+                                                    <option value="60-days">60 Days</option>
+                                                    <option value="90-days">90 Days</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </section>
                 </div>
-                <!-- <hr class="section-divider"> -->
-                <!-- <div id="cover">                    
-                   
-                    <h2 style="margin-top:2rem;">Update Your Cover</h2>
-                    <div class="cover-cards">
-                       
-                        <div class="cover-card">
-                            <div class="cover-card-header">
-                                <i class="fa-solid fa-heart-pulse cover-icon"></i>
-                                <span class="cover-type">Death Cover</span>
-                            </div>
-                            <div class="cover-card-body">
-                                <div class="form-group row-flex">
-                                    <label>Existing Cover:</label>
-                                    <span class="label-value">$500,000</span>
-                                </div>
-                                <div class="form-group row-flex">
-                                    <label for="death-value">New Cover:</label>
-                                    <input type="number" id="death-value" placeholder="Enter new death cover value" required step="10000" min="0">
-                                </div>
-                            </div>
-                        </div>
-                       
-                        <div class="cover-card">
-                            <div class="cover-card-header">
-                                <i class="fa-solid fa-user-shield cover-icon"></i>
-                                <span class="cover-type">TPD Cover</span>
-                            </div>
-                            <div class="cover-card-body">
-                                <div class="form-group row-flex">
-                                    <label>Existing Cover:</label>
-                                    <span class="label-value">$300,000</span>
-                                </div>
-                                <div class="form-group row-flex">
-                                    <label for="tpd-value">New Cover:</label>
-                                    <input type="number" id="tpd-value" placeholder="Enter new TPD cover value" required step="10000" min="0">
-                                </div>
-                            </div>
-                        </div>
-                       
-                        <div class="cover-card">
-                            <div class="cover-card-header">
-                                <i class="fa-solid fa-briefcase-medical cover-icon"></i>
-                                <span class="cover-type">Income Protection</span>
-                            </div>
-                            <div class="cover-card-body">
-                                <div class="form-group row-flex">
-                                    <label>Existing Cover:</label>
-                                    <span class="label-value">$5,000/month</span>
-                                </div>
-                                <div class="form-group row-flex">
-                                    <label>Existing Benefit Period:</label>
-                                    <span class="label-value">2 years</span>
-                                </div>
-                                <div class="form-group row-flex">
-                                    <label>Existing Waiting Period:</label>
-                                    <span class="label-value">90 Days</span>
-                                </div>
-                                <div class="form-group row-flex">
-                                    <label for="ip-value">New Cover:</label>
-                                    <input type="number" id="ip-value" placeholder="Enter new IP cover value" required step="1000" min="0">
-                                </div>
-                                <div class="form-group row-flex">
-                                    <label for="ip-benefit-period">New Benefit Period:</label>
-                                    <select id="ip-benefit-period" name="ip-benefit-period" required>
-                                        <option value="">Select...</option>
-                                        <option value="2-years">2 years</option>
-                                        <option value="5-years">5 years</option>
-                                        <option value="to-age-65">To age 65</option>
-                                    </select>
-                                </div>
-                                <div class="form-group row-flex">
-                                    <label for="ip-waiting-period">New Waiting Period:</label>
-                                    <select id="ip-waiting-period" name="ip-waiting-period" required>
-                                        <option value="">Select...</option>
-                                        <option value="14-days">14 Days</option>
-                                        <option value="30-days">30 Days</option>
-                                        <option value="60-days">60 Days</option>
-                                        <option value="90-days">90 Days</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>  -->
-                <!-- Quick Cover Section -->
-               <hr class="section-divider">
+                <hr class="section-divider">
                 <!-- Eligibility Questions Section -->
-                <h2 style="color: #e50a7e;margin-top:2rem;">Cover Eligibility</h2>
+                <h2 style="color: #e50a7e;margin-top:2rem;margin-bottom:2rem;">Cover Eligibility</h2>
                 <div id="conditional-questions">
                     <div class="form-group">
                         <label>Are you currently restricted from performing all of your normal and usual duties due to
@@ -247,9 +207,10 @@
                     </div>
                 </div>
                 <div id="conditional-questions-lf">
-                    
+
                     <div class="form-group">
-                        <label>Are you awaiting investigation for any symptoms, lump, tumour or growth which could include a biopsy, gastroscopy, colonoscopy, endoscopy?</label>
+                        <label>Are you awaiting investigation for any symptoms, lump, tumour or growth which could
+                            include a biopsy, gastroscopy, colonoscopy, endoscopy?</label>
                         <div class="radio-group">
                             <label><input type="radio" name="awaiting-investigation" value="yes" required> Yes</label>
                             <label><input type="radio" name="awaiting-investigation" value="no"> No</label>
@@ -263,14 +224,16 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Have you smoked, vaped, used tobacco or nicotine replacement products in the last 12 months?</label>
+                        <label>Have you smoked, vaped, used tobacco or nicotine replacement products in the last 12
+                            months?</label>
                         <div class="radio-group">
                             <label><input type="radio" name="nicotine-last-12m" value="yes" required> Yes</label>
                             <label><input type="radio" name="nicotine-last-12m" value="no"> No</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>In the last 5 years have you smoked any substance other than tobacco or nicotine products?</label>
+                        <label>In the last 5 years have you smoked any substance other than tobacco or nicotine
+                            products?</label>
                         <div class="radio-group">
                             <label><input type="radio" name="other-substance-5y" value="yes" required> Yes</label>
                             <label><input type="radio" name="other-substance-5y" value="no"> No</label>
@@ -286,11 +249,12 @@
                 </div>
                 <div class="button-row" style="margin-top:2rem; text-align:left;">
                     <button class="button" type="button" onclick="window.location.href='index.html'">Back</button>
-                    <button class="button" type="submit" style="margin-left: 1rem;" onclick="navigate('thank-you.html')">Submit</button>
+                    <button class="button" type="submit" style="margin-left: 1rem;"
+                        onclick="navigate('thank-you.html')">Submit</button>
                 </div>
             </form>
         </section>
-        
+
     </main>
     <footer>
         <p>&copy; 2023 Insurance Portal. All rights reserved.</p>
