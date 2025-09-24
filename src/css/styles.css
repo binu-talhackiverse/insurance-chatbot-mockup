@@ -157,17 +157,17 @@ h1, h2 {
     margin-bottom: 0.5rem;
     padding: 0.5rem 0.75rem;
     border-radius: 8px;
-    max-width: 85%;
+    max-width: 100%;
 }
 
 .bot-message {
-    background: #e7f0fe;
+    background: #ffc8e8;
     color: #2d6cdf;
     align-self: flex-start;
 }
 
 .user-message {
-    background: #d1e7dd;
+    background: #f7ddec!important;
     color: #1b4332;
     align-self: flex-end;
 }
