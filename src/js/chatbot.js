@@ -122,26 +122,45 @@ function addMessage(text, cls, journey) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Chatbot minimize/maximize logic
     const popup = document.getElementById('chatbot-popup');
     const toggleBtn = document.getElementById('chatbot-toggle');
     const toggleIcon = document.getElementById('chatbot-toggle-icon');
-    if (!popup || !toggleBtn || !toggleIcon) return;
-    let minimized = false;
+    if (popup && toggleBtn && toggleIcon) {
+        let minimized = false;
+        toggleBtn.addEventListener('click', function() {
+            minimized = !minimized;
+            if (minimized) {
+                popup.style.height = '48px';
+                popup.style.overflow = 'hidden';
+                toggleIcon.classList.remove('fa-window-minimize');
+                toggleIcon.classList.add('fa-window-maximize');
+                toggleBtn.title = "Maximize";
+            } else {
+                popup.style.height = '';
+                popup.style.overflow = '';
+                toggleIcon.classList.remove('fa-window-maximize');
+                toggleIcon.classList.add('fa-window-minimize');
+                toggleBtn.title = "Minimize";
+            }
+        });
+    }
 
-    toggleBtn.addEventListener('click', function() {
-        minimized = !minimized;
-        if (minimized) {
-            popup.style.height = '48px';
-            popup.style.overflow = 'hidden';
-            toggleIcon.classList.remove('fa-window-minimize');
-            toggleIcon.classList.add('fa-window-maximize');
-            toggleBtn.title = "Maximize";
-        } else {
-            popup.style.height = '';
-            popup.style.overflow = '';
-            toggleIcon.classList.remove('fa-window-maximize');
-            toggleIcon.classList.add('fa-window-minimize');
-            toggleBtn.title = "Minimize";
-        }
-    });
+    const chooseJourneyBtn = document.getElementById('choose-journey-btn');
+    const findNeedBtn = document.getElementById('find-need-btn');
+    const chatbotInput = document.getElementById('chatbot-input');
+    const chatbotForm = document.getElementById('chatbot-form');
+
+    if (chooseJourneyBtn) {
+        chooseJourneyBtn.onclick = function() {
+            chatbotInput.focus();
+            chatbotInput.value = "I want to choose a journey";
+            chatbotForm.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+        };
+    }
+    if (findNeedBtn) {
+        findNeedBtn.onclick = function() {
+            window.open("https://insurancecalculators.tal.com.au/awaresuper", "_blank");
+        };
+    }
 });
