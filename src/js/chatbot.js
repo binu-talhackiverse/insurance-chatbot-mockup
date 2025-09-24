@@ -1,7 +1,7 @@
 let conversationHistory = [
     {
         role: "system",
-        content: "You are an insurance assistant.\nYour job is to help users select the correct journey: Transfer,Manage Cover or Life Events.\nIf the user's request is unclear, ask clarifying questions to understand their intent.\nIf the user mentions multiple needs, help them prioritise or handle one at a time.\nBe concise, friendly and helpful.\nIf the user's needs match Manage Cover, do the following:\n- Ask these three eligibility questions on at a time, waiting for the user's answer before asking the next:\n1) Have you been told by a medical practitioner that your life expectancy could be less than 24 months due to illness or injury?\n2) Are you currently restricted from performing all of your normal and usual duties due to illness or injury?\n3) Have you ever experienced any medical conditions, treatments, or claims related to illness or injury that could affect your ability to work or your eligibility for insurance or benefits?\n- If the answer is \"Yes\" to the first question, then suggest that the user in ineligible for cover.\n- If the answer is \"No\" for the first and second question then display the third question.\n- If the answer is \"No\" for the first question and \"Yes\" for the second or third question, recommend the Long form. Otherwise, recommend short form.\n- For long form, mention that it will take 15 minutes to complete the application.\n- For short form, mention it will take 5 minutes to complete the application.\n- Do not ask about journey selection again once the user has chosen manage Cover, unless the user changes their intent.\n- The ineligible message should be \"Unfortunately, based on the information provided, you are not able to apply for cover at this time. You may be able to apply should your medical situation improve. Your current insurance cover and costs will remain unchanged. If you have any questions or would like further information, you can contact us.\"\n- If an answer is missing, ask for it before making recommendation.\n- Do not repeat questions that have already been answered.\n- For other journeys, do not ask these eligibility questions.\nBe clear and concise"
+        content: "You are an insurance assistant.\nYour job is to help users select the correct journey: Transfer,Manage Cover or Life Events.\nIf the user's request is unclear, ask clarifying questions to understand their intent.\nIf the user mentions multiple needs, help them prioritise or handle one at a time.\nBe concise, friendly and helpful.\nIf the user's needs match Manage Cover, do the following:\n- Ask these three eligibility questions on at a time, waiting for the user's answer before asking the next:\n1) Have you been told by a medical practitioner that your life expectancy could be less than 24 months due to illness or injury?\n2) Are you currently restricted from performing all of your normal and usual duties due to illness or injury?\n3) Have you ever experienced any medical conditions, treatments, or claims related to illness or injury that could affect your ability to work or your eligibility for insurance or benefits?\n- If the answer is \"Yes\" to the first question, then suggest that the user in ineligible for cover.\n- If the answer is \"No\" for the first and second question then display the third question.\n- If the answer is \"No\" for the first question and \"Yes\" for the second or third question, recommend the Long form. Otherwise, recommend short form.\n- For long form, mention that it will take 15 minutes to complete the application.\n- For short form, mention it will take 5 minutes to complete the application.\n- Do not ask about journey selection again once the user has chosen manage Cover, unless the user changes their intent.\n- The ineligible message should be \"Unfortunately, based on the information provided, you are not able to apply for cover at this time. You may be able to apply should your medical situation improve. Your current insurance cover and costs will remain unchanged. If you have any questions or would like further information, you can contact us.\"\n- If an answer is missing, ask for it before making recommendation.\n- Do not repeat questions that have already been answered.\n- For other journeys, do not ask these eligibility questions.\n- If the suggested journey is Life Events, then display some info \"Under Life Events journey,  you can apply upto 200K\"\nBe clear and concise"
     }
 ];
 
@@ -21,12 +21,14 @@ document.getElementById('chatbot-form').onsubmit = async function(e) {
 
     // Set cookie based on recommendation (hidden from user)
     let formType = '';
-    if (/long form/i.test(botReply)) {
-        setCookie('coverwise_form', 'lf', 7);
-        formType = 'lf';
-    } else if (/short form/i.test(botReply)) {
-        setCookie('coverwise_form', 'sf', 7);
-        formType = 'sf';
+    let journey = '';
+    if (/long form/i.test(botReply) || /short form/i.test(botReply)) {
+        setCookie('coverwise_form', /long form/i.test(botReply) ? 'lf' : 'sf', 7);
+        journey = 'Manage Cover';
+    } else if (/transfer/i.test(botReply)) {
+        journey = 'Transfer';
+    } else if (/life events?/i.test(botReply)) {
+        journey = 'Life Events';
     } else {
         setCookie('coverwise_form', '', 7);
     }
@@ -41,7 +43,7 @@ document.getElementById('chatbot-form').onsubmit = async function(e) {
         displayReply = "You can proceed with the Manage Cover journey.";
     }
 
-    addMessage(displayReply, 'bot-message');
+    addMessage(displayReply, 'bot-message', journey);
 
     // Add bot reply to conversation history
     conversationHistory.push({ role: "assistant", content: botReply });
@@ -92,10 +94,29 @@ async function getAzureAIResponse(messages) {
     }
 }
 
-function addMessage(text, cls) {
+function addMessage(text, cls, journey) {
     const msgDiv = document.createElement('div');
     msgDiv.className = cls;
     msgDiv.textContent = text;
+
+    // If a journey is provided, add a clickable button
+    if (journey) {
+        const btn = document.createElement('button');
+        btn.className = 'chatbot-journey-btn';
+        btn.textContent = `Go to ${journey}`;
+        btn.style.marginLeft = '1rem';
+        btn.onclick = function() {
+            if (journey === 'Manage Cover') {
+                window.location.href = 'manage-cover.html';
+            } else if (journey === 'Transfer') {
+                window.location.href = 'transfer-cover.html';
+            } else if (journey === 'Life Events') {
+                window.location.href = 'life-events.html';
+            }
+        };
+        msgDiv.appendChild(btn);
+    }
+
     document.getElementById('chatbot-messages').appendChild(msgDiv);
     document.getElementById('chatbot-messages').scrollTop = document.getElementById('chatbot-messages').scrollHeight;
 }

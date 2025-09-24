@@ -1,13 +1,32 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Check cookie value on load
     const coverwiseForm = getCookie('coverwise_form');
-    const conditionalQuestions = document.getElementById('conditional-questions');
-    if (conditionalQuestions) {
-        if (coverwiseForm) {
-            conditionalQuestions.style.display = 'none';
-        } else {
-            conditionalQuestions.style.display = '';
-        }
+
+    // Show quick cover card only if cookie value is 'sf'
+    const quickCoverCard = document.getElementById('quick-cover-card');
+    if (quickCoverCard) {
+        quickCoverCard.style.display = coverwiseForm === 'lf' ? 'none' : '';
+    }
+
+    // Conditional questions display logic
+    const sfQuestions = document.getElementById('conditional-questions');
+    const lfQuestions = document.getElementById('conditional-questions-lf');
+    if (coverwiseForm === 'sf') {
+        if (sfQuestions) sfQuestions.style.display = '';
+        if (lfQuestions) lfQuestions.style.display = 'none';
+    } else if (coverwiseForm === 'lf') {
+        if (sfQuestions) sfQuestions.style.display = 'none';
+        if (lfQuestions) lfQuestions.style.display = '';
+    } else {
+        if (sfQuestions) sfQuestions.style.display = '';
+        if (lfQuestions) lfQuestions.style.display = '';
+    }
+
+    // Preselect radio buttons as "No" if cookie value is 'sf'
+    if (coverwiseForm === 'sf') {
+        const restrictedNo = document.querySelector('input[name="restricted-duties"][value="no"]');
+        const lifeExpNo = document.querySelector('input[name="life-expectancy"][value="no"]');
+        if (restrictedNo) restrictedNo.checked = true;
+        if (lifeExpNo) lifeExpNo.checked = true;
     }
 
     const form = document.querySelector('.form-section');

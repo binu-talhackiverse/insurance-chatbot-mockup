@@ -38,7 +38,7 @@
         </div>
         <section class="personal-details-section">
             <form class="form-section">
-                <h2>Personal Details</h2>
+                <h2 style="color: #e50a7e;">Personal Details</h2>
                 <div class="form-group">
                     <label>Name</label>
                     <span class="label-value">John Doe</span>
@@ -67,11 +67,64 @@
                         <option value="other">Other</option>
                     </select>
                 </div>
-                <div id="cover">                    
-                    <!-- New Cover Section -->
+                <hr class="section-divider">
+
+                <div class="cover-selection">
+                    <h2 style="color: #e50a7e; margin-bottom: 1.5rem;">Cover Selection</h2>
+                    <section class="cover-section">
+                        <div class="quick-cover-card" id="quick-cover-card" style="display: none;">
+                            <div class="quick-cover-header">
+                                <i class="fa-solid fa-bolt cover-icon"></i>
+                                <span class="cover-type">Quick Cover</span>
+                            </div>
+                            <div class="quick-cover-body">
+                                <div class="form-group row-flex">
+                                    <label>Death Cover:</label>
+                                    <span class="label-value">$220,000</span>
+                                </div>
+                                <div class="form-group row-flex">
+                                    <label>TPD Cover:</label>
+                                    <span class="label-value">$120,000</span>
+                                </div>
+                                <div class="form-group row-flex">
+                                    <label>IP Cover:</label>
+                                    <span class="label-value">$5,000</span>
+                                </div>
+                                <div class="form-group row-flex">
+                                    <button type="button" class="button">Apply Quick Cover</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="customize-cover-section">
+                        <div class="customize-cover-card">
+                            <div class="customize-cover-header">
+                                <i class="fa-solid fa-sliders cover-icon"></i>
+                                <span class="cover-type">Customize Cover</span>
+                            </div>
+                            <div class="customize-cover-body">
+                                <div class="form-group row-flex">
+                                    <label for="custom-death-cover">Death Cover:</label>
+                                    <input type="number" id="custom-death-cover" placeholder="Enter custom death cover amount" step="10000" min="0">
+                                </div>
+                                <div class="form-group row-flex">
+                                    <label for="custom-tpd-cover">TPD Cover:</label>
+                                    <input type="number" id="custom-tpd-cover" placeholder="Enter custom TPD cover amount" step="10000" min="0">
+                                </div>
+                                <div class="form-group row-flex">
+                                    <label for="custom-ip-cover">IP Cover:</label>
+                                    <input type="number" id="custom-ip-cover" placeholder="Enter custom IP cover amount" step="5000" min="0">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- <hr class="section-divider"> -->
+                <!-- <div id="cover">                    
+                   
                     <h2 style="margin-top:2rem;">Update Your Cover</h2>
                     <div class="cover-cards">
-                        <!-- Death Cover Card -->
+                       
                         <div class="cover-card">
                             <div class="cover-card-header">
                                 <i class="fa-solid fa-heart-pulse cover-icon"></i>
@@ -84,11 +137,11 @@
                                 </div>
                                 <div class="form-group row-flex">
                                     <label for="death-value">New Cover:</label>
-                                    <input type="number" id="death-value" placeholder="Enter new death cover value" required>
+                                    <input type="number" id="death-value" placeholder="Enter new death cover value" required step="10000" min="0">
                                 </div>
                             </div>
                         </div>
-                        <!-- TPD Cover Card -->
+                       
                         <div class="cover-card">
                             <div class="cover-card-header">
                                 <i class="fa-solid fa-user-shield cover-icon"></i>
@@ -101,11 +154,11 @@
                                 </div>
                                 <div class="form-group row-flex">
                                     <label for="tpd-value">New Cover:</label>
-                                    <input type="number" id="tpd-value" placeholder="Enter new TPD cover value" required>
+                                    <input type="number" id="tpd-value" placeholder="Enter new TPD cover value" required step="10000" min="0">
                                 </div>
                             </div>
                         </div>
-                        <!-- Income Protection Card -->
+                       
                         <div class="cover-card">
                             <div class="cover-card-header">
                                 <i class="fa-solid fa-briefcase-medical cover-icon"></i>
@@ -126,7 +179,7 @@
                                 </div>
                                 <div class="form-group row-flex">
                                     <label for="ip-value">New Cover:</label>
-                                    <input type="number" id="ip-value" placeholder="Enter new IP cover value" required>
+                                    <input type="number" id="ip-value" placeholder="Enter new IP cover value" required step="1000" min="0">
                                 </div>
                                 <div class="form-group row-flex">
                                     <label for="ip-benefit-period">New Benefit Period:</label>
@@ -150,9 +203,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>  -->
+                <!-- Quick Cover Section -->
+               <hr class="section-divider">
                 <!-- Eligibility Questions Section -->
-                <h2 style="margin-top:2rem;">Eligibility Questions</h2>
+                <h2 style="color: #e50a7e;margin-top:2rem;">Questions</h2>
                 <div id="conditional-questions">
                     <div class="form-group">
                         <label>Are you currently restricted from performing all of your normal and usual duties due to
@@ -171,6 +226,7 @@
                         </div>
                     </div>
                 </div>
+                <div id="conditional-questions-lf">
                 <div class="form-group">
                     <label>Have you been told by a medical practitioner that an illness or injury you suffer from, may
                         cause you a permanent inability to work?</label>
@@ -179,12 +235,14 @@
                         <label><input type="radio" name="permanent-inability" value="no"> No</label>
                     </div>
                 </div>
+                </div>
                 <div class="button-row" style="margin-top:2rem; text-align:left;">
                     <button class="button" type="button" onclick="window.location.href='index.html'">Back</button>
                     <button class="button" type="submit" style="margin-left: 1rem;" onclick="navigate('thank-you.html')">Submit</button>
                 </div>
             </form>
         </section>
+        
     </main>
     <footer>
         <p>&copy; 2023 Insurance Portal. All rights reserved.</p>
