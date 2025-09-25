@@ -97,8 +97,10 @@ function setCookie(name, value, days) {
 
 // Modified to accept conversation history
 async function getAzureAIResponse(messages) {
-    const endpoint = "https://coverwise-agent-1-resource.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2025-01-01-preview";
-    const apiKey = "52w2QlkgQXDsYAnzT6nc6IJpjSQeVvylVMt8pKdmO8cGKCNJ8q5aJQQJ99BIACYeBjFXJ3w3AAAAACOGr2Z1";
+    //const endpoint = "https://coverwise-agent-1-resource.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2025-01-01-preview";
+    const endpoint = "https://coverwise-agent-2-resource.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2025-01-01-preview";
+    //const apiKey = "52w2QlkgQXDsYAnzT6nc6IJpjSQeVvylVMt8pKdmO8cGKCNJ8q5aJQQJ99BIACYeBjFXJ3w3AAAAACOGr2Z1";
+    const apiKey = "3FDZ7qPgm76RvBHoUzkBJohNNq98vomB6Z20k4qooaO3biogOkaiJQQJ99BIACYeBjFXJ3w3AAAAACOGjuBl";
 
     const payload = {
         "messages": messages,
